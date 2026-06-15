@@ -1,0 +1,2525 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>چاپ‌نت | مرجع چاپ ایران</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C90003;
+    --blue: #042F7B;
+    --white: #FFFFFF;
+    --off-white: #F8F9FC;
+    --light-gray: #F0F2F7;
+    --mid-gray: #8892AA;
+    --dark: #0A0E1A;
+    --glass: rgba(255,255,255,0.7);
+    --glass-border: rgba(255,255,255,0.9);
+    --shadow-luxury: 0 25px 80px rgba(4,47,123,0.12), 0 8px 32px rgba(201,0,3,0.06);
+    --shadow-card: 0 8px 40px rgba(4,47,123,0.1);
+    --transition: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+    direction: rtl;
+  }
+
+  /* ══════════ NAV ══════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(4,47,123,0.06);
+    transition: all 0.4s var(--transition);
+  }
+
+  nav.scrolled {
+    height: 60px;
+    box-shadow: 0 4px 30px rgba(4,47,123,0.08);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--red), #a00002);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-icon::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: white;
+    top: 30%;
+    left: 20%;
+    border-radius: 2px;
+    box-shadow: 0 5px 0 white, 0 10px 0 rgba(255,255,255,0.6);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-primary {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-primary span { color: var(--red); }
+
+  .logo-sub {
+    font-size: 10px;
+    color: var(--mid-gray);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width 0.3s var(--transition);
+  }
+
+  .nav-links a:hover { color: var(--red); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    padding: 8px 20px;
+    border: 1.5px solid var(--blue);
+    border-radius: 8px;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    font-family: 'Vazirmatn', sans-serif;
+    background: transparent;
+  }
+
+  .btn-ghost:hover {
+    background: var(--blue);
+    color: white;
+  }
+
+  .btn-primary {
+    padding: 9px 22px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    font-family: 'Vazirmatn', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(201,0,3,0.3);
+  }
+
+  .btn-primary:hover {
+    background: #a80002;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201,0,3,0.35);
+  }
+
+  /* ══════════ HERO ══════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 72px;
+    background: var(--white);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Animated mesh gradient */
+  .mesh-1 {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,0,3,0.05) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+    animation: meshFloat1 12s ease-in-out infinite;
+  }
+
+  .mesh-2 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(4,47,123,0.06) 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
+    animation: meshFloat2 15s ease-in-out infinite;
+  }
+
+  .mesh-3 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,0,3,0.04) 0%, transparent 70%);
+    top: 40%;
+    right: 20%;
+    animation: meshFloat3 10s ease-in-out infinite;
+  }
+
+  @keyframes meshFloat1 {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(40px, 30px) scale(1.05); }
+  }
+  @keyframes meshFloat2 {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(-30px, -40px) scale(1.08); }
+  }
+  @keyframes meshFloat3 {
+    0%, 100% { transform: translate(0,0); }
+    50% { transform: translate(-20px, 20px); }
+  }
+
+  /* Grid lines */
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(4,47,123,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(4,47,123,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 24px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(201,0,3,0.06);
+    border: 1px solid rgba(201,0,3,0.15);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--red);
+    margin-bottom: 32px;
+    animation: fadeDown 0.8s var(--transition) both;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 7vw, 86px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 8px;
+    animation: fadeDown 0.9s 0.1s var(--transition) both;
+    letter-spacing: -1px;
+  }
+
+  .hero-title .accent { color: var(--red); }
+  .hero-title .blue { color: var(--blue); }
+
+  .hero-subtitle-line {
+    display: block;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 300;
+    color: var(--mid-gray);
+    margin-bottom: 40px;
+    animation: fadeDown 1s 0.2s var(--transition) both;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeDown 1s 0.3s var(--transition) both;
+    margin-bottom: 64px;
+  }
+
+  .btn-hero {
+    padding: 16px 36px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s var(--transition);
+    font-family: 'Vazirmatn', sans-serif;
+  }
+
+  .btn-hero-primary {
+    background: var(--red);
+    color: white;
+    border: none;
+    box-shadow: 0 8px 30px rgba(201,0,3,0.35);
+  }
+
+  .btn-hero-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(201,0,3,0.4);
+  }
+
+  .btn-hero-secondary {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid rgba(4,47,123,0.2);
+  }
+
+  .btn-hero-secondary:hover {
+    border-color: var(--blue);
+    background: rgba(4,47,123,0.04);
+    transform: translateY(-2px);
+  }
+
+  /* 3D Machine Visual */
+  .machine-showcase {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    animation: fadeUp 1.2s 0.4s var(--transition) both;
+  }
+
+  .machine-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 52%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-luxury);
+  }
+
+  canvas#heroCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .machine-overlay-stats {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .stat-chip {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  .stat-chip-num {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+  }
+
+  .stat-chip-label {
+    display: block;
+    font-size: 10px;
+    color: var(--mid-gray);
+    margin-top: 2px;
+  }
+
+  .machine-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ══════════ MARQUEE ══════════ */
+  .marquee-section {
+    padding: 20px 0;
+    background: var(--blue);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee-track {
+    display: flex;
+    animation: marqueeSlide 20s linear infinite;
+    gap: 0;
+    white-space: nowrap;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 32px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .marquee-item .dot {
+    width: 4px;
+    height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .marquee-item strong { color: white; font-weight: 700; }
+
+  @keyframes marqueeSlide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ══════════ SCENE SECTIONS ══════════ */
+  section {
+    position: relative;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--red);
+    border-radius: 1px;
+  }
+
+  /* ══════════ PRODUCTS SCENE ══════════ */
+  .products-scene {
+    padding: 120px 40px;
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .products-scene::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(4,47,123,0.12), transparent);
+  }
+
+  .scene-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 72px;
+  }
+
+  .scene-title {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .scene-title span { color: var(--red); }
+
+  .scene-desc {
+    font-size: 16px;
+    color: var(--mid-gray);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(4,47,123,0.06);
+    transition: all 0.4s var(--transition);
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(4,47,123,0.05);
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(4,47,123,0.12), 0 4px 20px rgba(201,0,3,0.06);
+    border-color: rgba(201,0,3,0.12);
+  }
+
+  .product-card:hover .product-cta { opacity: 1; transform: translateY(0); }
+
+  .product-visual {
+    height: 180px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .product-icon-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    position: relative;
+    transition: transform 0.4s var(--transition);
+    z-index: 2;
+  }
+
+  .product-card:hover .product-icon-wrap {
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  .product-info {
+    padding: 20px;
+  }
+
+  .product-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .product-desc {
+    font-size: 12px;
+    color: var(--mid-gray);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .product-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .product-delivery {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--mid-gray);
+  }
+
+  .product-cta {
+    padding: 7px 16px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Vazirmatn', sans-serif;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.3s var(--transition);
+  }
+
+  /* ══════════ BRAND MANIFESTO ══════════ */
+  .manifesto-scene {
+    padding: 140px 40px;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(201,0,3,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(4,47,123,0.15) 0%, transparent 60%);
+  }
+
+  .manifesto-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .manifesto-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .manifesto-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--red);
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .manifesto-title {
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .manifesto-title .highlight {
+    background: linear-gradient(135deg, #ff4444, #C90003);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .manifesto-body {
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .manifesto-body strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  /* ══════════ STATS ══════════ */
+  .stats-scene {
+    padding: 100px 40px;
+    background: white;
+    position: relative;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(4,47,123,0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .stat-item {
+    background: white;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .stat-item:hover { background: var(--off-white); }
+
+  .stat-num {
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-num.red { color: var(--red); }
+  .stat-num.blue { color: var(--blue); }
+
+  .stat-plus {
+    font-size: 0.6em;
+    vertical-align: super;
+    opacity: 0.7;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--mid-gray);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ══════════ WHY US ══════════ */
+  .why-scene {
+    padding: 120px 40px;
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .why-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(4,47,123,0.06);
+    transition: all 0.3s var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--red);
+    transform: scaleY(0);
+    transition: transform 0.3s var(--transition);
+    transform-origin: top;
+  }
+
+  .feature-card:hover::before { transform: scaleY(1); }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .feature-icon.red { background: rgba(201,0,3,0.08); }
+  .feature-icon.blue { background: rgba(4,47,123,0.08); }
+
+  .feature-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .feature-desc {
+    font-size: 12px;
+    color: var(--mid-gray);
+    line-height: 1.6;
+  }
+
+  .why-text { }
+
+  .why-big-text {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+  }
+
+  .why-big-text span { color: var(--red); }
+
+  .why-body {
+    font-size: 15px;
+    color: var(--mid-gray);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  /* ══════════ MAP / DELIVERY ══════════ */
+  .delivery-scene {
+    padding: 120px 40px;
+    background: var(--blue);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .delivery-scene::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,0,3,0.15) 0%, transparent 70%);
+  }
+
+  .delivery-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .delivery-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .delivery-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .delivery-title .accent { color: #FF6B6B; }
+
+  .delivery-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  /* Iran Map SVG */
+  .iran-map-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .iran-map-svg {
+    width: 100%;
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.3));
+  }
+
+  .iran-map-svg path {
+    fill: rgba(255,255,255,0.1);
+    stroke: rgba(255,255,255,0.25);
+    stroke-width: 0.5;
+    transition: fill 0.3s;
+  }
+
+  .province-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201,0,3,0.4); }
+    50% { transform: scale(1.3); box-shadow: 0 0 0 8px rgba(201,0,3,0); }
+  }
+
+  .provinces-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .prov-item { color: white; }
+  .prov-num { font-size: 48px; font-weight: 900; display: block; }
+  .prov-label { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+  /* ══════════ INDUSTRIES ══════════ */
+  .industries-scene {
+    padding: 120px 40px;
+    background: white;
+    position: relative;
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 60px auto 0;
+  }
+
+  .industry-card {
+    border-radius: 20px;
+    padding: 32px 24px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s var(--transition);
+    border: 1px solid rgba(4,47,123,0.06);
+    background: var(--off-white);
+  }
+
+  .industry-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(4,47,123,0.1);
+  }
+
+  .industry-card:hover .industry-bg { opacity: 0.08; }
+
+  .industry-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+    border-radius: 20px;
+  }
+
+  .industry-emoji { font-size: 40px; margin-bottom: 16px; display: block; }
+
+  .industry-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .industry-desc {
+    font-size: 12px;
+    color: var(--mid-gray);
+    line-height: 1.6;
+  }
+
+  /* ══════════ CONTACT ══════════ */
+  .contact-scene {
+    padding: 120px 40px;
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-info {}
+
+  .contact-headline {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 900;
+    color: var(--dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+
+  .contact-headline span { color: var(--red); }
+
+  .contact-body {
+    font-size: 15px;
+    color: var(--mid-gray);
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(4,47,123,0.06);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .contact-method:hover {
+    border-color: rgba(201,0,3,0.2);
+    transform: translateX(-4px);
+    box-shadow: 0 4px 20px rgba(201,0,3,0.08);
+  }
+
+  .method-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .method-icon.red { background: rgba(201,0,3,0.08); }
+  .method-icon.green { background: rgba(37,211,102,0.1); }
+  .method-icon.blue { background: rgba(4,47,123,0.08); }
+
+  .method-info { flex: 1; }
+
+  .method-label {
+    display: block;
+    font-size: 11px;
+    color: var(--mid-gray);
+    margin-bottom: 2px;
+  }
+
+  .method-value {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    direction: ltr;
+  }
+
+  .method-arrow {
+    color: var(--mid-gray);
+    font-size: 16px;
+  }
+
+  /* Contact Form */
+  .contact-form-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-luxury);
+    border: 1px solid rgba(4,47,123,0.06);
+  }
+
+  .form-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-field {
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--off-white);
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 14px;
+    color: var(--dark);
+    direction: rtl;
+    transition: all 0.25s;
+    outline: none;
+  }
+
+  .form-input:focus {
+    border-color: var(--blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(4,47,123,0.08);
+  }
+
+  .form-input::placeholder { color: #B0B8CC; }
+
+  textarea.form-input {
+    resize: none;
+    height: 100px;
+  }
+
+  .form-select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Vazirmatn', sans-serif;
+    transition: all 0.3s var(--transition);
+    box-shadow: 0 6px 20px rgba(201,0,3,0.3);
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover {
+    background: #a80002;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201,0,3,0.35);
+  }
+
+  /* ══════════ FOOTER ══════════ */
+  footer {
+    background: var(--dark);
+    padding: 60px 40px 32px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red), var(--blue), var(--red));
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto 48px;
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--red);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+    color: white;
+  }
+
+  .footer-logo-text { font-size: 16px; font-weight: 800; color: white; }
+  .footer-logo-text span { color: var(--red); }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .footer-col-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-phone {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 16px;
+    direction: ltr;
+    display: inline-block;
+  }
+
+  /* ══════════ ANIMATIONS ══════════ */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* Floating decorative elements */
+  .float-decoration {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0.04;
+  }
+
+  /* ══════════ SCROLL INDICATOR ══════════ */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: fadeDown 1s 1s both;
+  }
+
+  .scroll-text {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--mid-gray);
+    text-transform: uppercase;
+  }
+
+  .scroll-mouse {
+    width: 22px;
+    height: 36px;
+    border: 2px solid rgba(4,47,123,0.2);
+    border-radius: 11px;
+    position: relative;
+  }
+
+  .scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollWheel {
+    0% { top: 5px; opacity: 1; }
+    100% { top: 18px; opacity: 0; }
+  }
+
+  /* ══════════ RESPONSIVE ══════════ */
+  @media (max-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-text { order: -1; }
+    .contact-wrap { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+
+    .hero-title { font-size: clamp(32px, 8vw, 52px); }
+
+    .products-scene, .manifesto-scene, .stats-scene,
+    .why-scene, .delivery-scene, .industries-scene,
+    .contact-scene { padding: 80px 20px; }
+
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .why-features { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .provinces-counter { gap: 24px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .contact-form-card { padding: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn-hero { justify-content: center; }
+  }
+
+  /* Glassmorphism pill */
+  .glass-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Testimonial / quote strip */
+  .quote-strip {
+    background: white;
+    padding: 60px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(4,47,123,0.06);
+    border-bottom: 1px solid rgba(4,47,123,0.06);
+  }
+
+  .quote-text {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--dark);
+    max-width: 700px;
+    margin: 0 auto 16px;
+    line-height: 1.5;
+  }
+
+  .quote-text span { color: var(--red); }
+
+  .quote-sub {
+    font-size: 14px;
+    color: var(--mid-gray);
+  }
+
+  /* Process steps */
+  .process-scene {
+    padding: 120px 40px;
+    background: white;
+    position: relative;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    max-width: 1100px;
+    margin: 64px auto 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    right: 10%;
+    left: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--red), var(--blue));
+    z-index: 0;
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    position: relative;
+    transition: transform 0.3s var(--transition);
+  }
+
+  .step-item:hover .step-num { transform: scale(1.1); }
+
+  .step-num.red { background: var(--red); color: white; }
+  .step-num.blue { background: var(--blue); color: white; }
+  .step-num.light { background: white; color: var(--blue); border: 2px solid rgba(4,47,123,0.15); }
+
+  .step-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .step-desc {
+    font-size: 11px;
+    color: var(--mid-gray);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .process-steps::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="logo-icon"></div>
+    <div class="logo-text">
+      <span class="logo-primary">چاپ<span>‌نت</span></span>
+      <span class="logo-sub">مرجع چاپ ایران</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#products">محصولات</a></li>
+    <li><a href="#industries">صنایع</a></li>
+    <li><a href="#process">فرآیند</a></li>
+    <li><a href="#about">درباره ما</a></li>
+  </ul>
+
+  <div class="nav-cta">
+    <a href="tel:09037161259" class="btn-ghost">مشاوره رایگان</a>
+    <a href="tel:09037161259" class="btn-primary">
+      <span>📞</span>
+      ثبت سفارش
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="mesh-1"></div>
+    <div class="mesh-2"></div>
+    <div class="mesh-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      مرجع رسمی چاپ و بسته‌بندی ایران
+    </div>
+
+    <h1 class="hero-title">
+      از <span class="accent">ایده</span> تا چاپ<br>
+      از چاپ تا <span class="blue">ماندگاری</span>
+    </h1>
+
+    <span class="hero-subtitle-line">
+      پلتفرم جامع چاپ، بسته‌بندی و هدایای تبلیغاتی<br>
+      ارسال به سراسر ایران · کیفیت تضمینی · مشاوره رایگان
+    </span>
+
+    <div class="hero-actions">
+      <a href="tel:09037161259" class="btn-hero btn-hero-primary">
+        📦 مشاهده محصولات
+      </a>
+      <a href="tel:09037161259" class="btn-hero btn-hero-secondary">
+        📞 تماس با کارشناس
+      </a>
+    </div>
+
+    <!-- 3D Machine Canvas -->
+    <div class="machine-showcase">
+      <div class="machine-frame">
+        <canvas id="heroCanvas"></canvas>
+        <div class="machine-tag">🔴 LIVE — سفارشات در حال پردازش</div>
+        <div class="machine-overlay-stats">
+          <div class="stat-chip">
+            <span class="stat-chip-num">۵۰۰۰+</span>
+            <span class="stat-chip-label">پروژه موفق</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip-num">۳۱</span>
+            <span class="stat-chip-label">استان تحت پوشش</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip-num">۹۸٪</span>
+            <span class="stat-chip-label">رضایت مشتری</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-text">اسکرول کنید</span>
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item"><span class="dot"></span><strong>کارت ویزیت</strong> · طراحی و چاپ حرفه‌ای</div>
+    <div class="marquee-item"><span class="dot"></span><strong>بسته‌بندی</strong> · هاردباکس لاکچری</div>
+    <div class="marquee-item"><span class="dot"></span><strong>کاتالوگ</strong> · چاپ گلاسه و مات</div>
+    <div class="marquee-item"><span class="dot"></span><strong>لیبل</strong> · چسبان و بدون چسب</div>
+    <div class="marquee-item"><span class="dot"></span><strong>استیکر</strong> · کات و ورق</div>
+    <div class="marquee-item"><span class="dot"></span><strong>بنر</strong> · فلکسی و مش</div>
+    <div class="marquee-item"><span class="dot"></span><strong>ساک دستی</strong> · کرافت و گلاسه</div>
+    <div class="marquee-item"><span class="dot"></span><strong>هدایای تبلیغاتی</strong> · سفارشی</div>
+    <div class="marquee-item"><span class="dot"></span><strong>کارت ویزیت</strong> · طراحی و چاپ حرفه‌ای</div>
+    <div class="marquee-item"><span class="dot"></span><strong>بسته‌بندی</strong> · هاردباکس لاکچری</div>
+    <div class="marquee-item"><span class="dot"></span><strong>کاتالوگ</strong> · چاپ گلاسه و مات</div>
+    <div class="marquee-item"><span class="dot"></span><strong>لیبل</strong> · چسبان و بدون چسب</div>
+    <div class="marquee-item"><span class="dot"></span><strong>استیکر</strong> · کات و ورق</div>
+    <div class="marquee-item"><span class="dot"></span><strong>بنر</strong> · فلکسی و مش</div>
+    <div class="marquee-item"><span class="dot"></span><strong>ساک دستی</strong> · کرافت و گلاسه</div>
+    <div class="marquee-item"><span class="dot"></span><strong>هدایای تبلیغاتی</strong> · سفارشی</div>
+  </div>
+</div>
+
+<!-- ══════════ QUOTE STRIP ══════════ -->
+<div class="quote-strip">
+  <p class="quote-text">برند شما <span>قبل از فروش</span> قضاوت می‌شود.<br>بسته‌بندی حرفه‌ای اعتماد می‌سازد.</p>
+  <p class="quote-sub">چاپ‌نت | مرجع چاپ ایران — از هر نقطه کشور سفارش بدهید</p>
+</div>
+
+<!-- ══════════ PRODUCTS ══════════ -->
+<section class="products-scene" id="products">
+  <div class="scene-header reveal">
+    <div class="section-label">محصولات ما</div>
+    <h2 class="scene-title">نمایشگاه <span>دیجیتال</span> چاپ‌نت</h2>
+    <p class="scene-desc">از کارت ویزیت تا بسته‌بندی صادراتی — هر آنچه برندتان نیاز دارد</p>
+  </div>
+
+  <div class="products-grid">
+    <!-- Product Cards -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-visual" style="background: linear-gradient(135deg, #FFF5F5, #FFE8E8);">
+        <div class="product-icon-wrap" style="background: linear-gradient(135deg, rgba(201,0,3,0.12), rgba(201,0,3,0.06));">💼</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">کارت ویزیت</h3>
+        <p class="product-desc">چاپ کارت ویزیت با کاغذ گلاسه، مات، طلاکوب و UV اختصاصی</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۳ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-visual" style="background: linear-gradient(135deg, #F0F4FF, #E4ECFF);">
+        <div class="product-icon-wrap" style="background: rgba(4,47,123,0.08);">📦</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">هاردباکس</h3>
+        <p class="product-desc">جعبه مقوایی لاکچری برای محصولات پریمیوم، آرایشی و هدیه</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۷ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-3">
+      <div class="product-visual" style="background: linear-gradient(135deg, #FFF8F0, #FFEEDD);">
+        <div class="product-icon-wrap" style="background: rgba(255,140,0,0.1);">📋</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">کاتالوگ</h3>
+        <p class="product-desc">کاتالوگ چند لا با کاغذ گلاسه ۱۵۰ گرم، صحافی حرفه‌ای</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۵ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-4">
+      <div class="product-visual" style="background: linear-gradient(135deg, #F0FFF4, #E0FFE8);">
+        <div class="product-icon-wrap" style="background: rgba(34,197,94,0.1);">🏷️</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">لیبل و استیکر</h3>
+        <p class="product-desc">لیبل چسبان، کات شده، هولوگرام و ضدآب برای محصولات</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۳ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-visual" style="background: linear-gradient(135deg, #FFF0F8, #FFE4F2);">
+        <div class="product-icon-wrap" style="background: rgba(219,39,119,0.1);">🛍️</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">ساک دستی</h3>
+        <p class="product-desc">ساک دستی کرافت، گلاسه، تیشو با دسته طنابی یا روبانی</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۵ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-visual" style="background: linear-gradient(135deg, #F5F0FF, #EEE4FF);">
+        <div class="product-icon-wrap" style="background: rgba(139,92,246,0.1);">🎁</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">هدایای تبلیغاتی</h3>
+        <p class="product-desc">خودکار، دفترچه، فلش، تقویم و هدایای سفارشی با برند شما</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۱۰ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-visual" style="background: linear-gradient(135deg, #F0FBFF, #E0F4FF);">
+        <div class="product-icon-wrap" style="background: rgba(14,165,233,0.1);">🏴</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">بنر و پرچم</h3>
+        <p class="product-desc">بنر فلکسی، مش، پرچم رومیزی و اداری با چاپ UV</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۲ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal reveal-delay-3">
+      <div class="product-visual" style="background: linear-gradient(135deg, #FFFBF0, #FFF4D4);">
+        <div class="product-icon-wrap" style="background: rgba(245,158,11,0.1);">📦</div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">بسته‌بندی صادراتی</h3>
+        <p class="product-desc">کارتن، جعبه و بسته‌بندی با استانداردهای بین‌المللی</p>
+        <div class="product-meta">
+          <span class="product-delivery">⚡ تحویل ۱۰ روزه</span>
+          <a href="tel:09037161259" class="product-cta">ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MANIFESTO ══════════ -->
+<section class="manifesto-scene">
+  <div class="manifesto-bg"></div>
+  <div class="manifesto-grid"></div>
+  <div class="manifesto-content reveal">
+    <p class="manifesto-eyebrow">فلسفه چاپ‌نت</p>
+    <h2 class="manifesto-title">
+      ما چاپ نمی‌کنیم...<br>
+      به محصولات شما<br>
+      <span class="highlight">هویت می‌دهیم.</span>
+    </h2>
+    <p class="manifesto-body">
+      هر بسته‌بندی، هر کارت ویزیت، هر لیبل — <strong>اولین فروشنده محصول شماست.</strong><br>
+      کیفیت چاپ، کیفیت برند شما را تعریف می‌کند.<br>
+      محصول خوب کافی نیست... باید حرفه‌ای دیده شود.
+    </p>
+    <a href="tel:09037161259" class="glass-pill">
+      📞 ۰۹۰۳۷۱۶۱۲۵۹ — مشاوره رایگان همین الان
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ STATS ══════════ -->
+<section class="stats-scene">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num red"><span class="counter" data-target="5000">۰</span><span class="stat-plus">+</span></div>
+      <div class="stat-label">پروژه موفق<br>تکمیل شده</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num blue"><span class="counter" data-target="1000">۰</span><span class="stat-plus">+</span></div>
+      <div class="stat-label">مشتری کسب‌وکار<br>فعال</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num red"><span class="counter" data-target="31">۰</span></div>
+      <div class="stat-label">استان<br>تحت پوشش</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num blue"><span class="counter" data-target="98">۰</span><span class="stat-plus">٪</span></div>
+      <div class="stat-label">رضایت<br>مشتریان</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section class="process-scene" id="process">
+  <div class="scene-header reveal" style="text-align:center; max-width:600px; margin:0 auto 0;">
+    <div class="section-label" style="justify-content:center;">فرآیند کار</div>
+    <h2 class="scene-title">از ایده تا تحویل در <span>۵ گام</span></h2>
+  </div>
+
+  <div class="process-steps">
+    <div class="step-item reveal">
+      <div class="step-num red">۱</div>
+      <div class="step-name">مشاوره رایگان</div>
+      <div class="step-desc">تماس با کارشناس و بررسی نیاز شما</div>
+    </div>
+    <div class="step-item reveal reveal-delay-1">
+      <div class="step-num light">۲</div>
+      <div class="step-name">ارسال فایل</div>
+      <div class="step-desc">آپلود فایل طراحی یا درخواست طراحی</div>
+    </div>
+    <div class="step-item reveal reveal-delay-2">
+      <div class="step-num blue">۳</div>
+      <div class="step-name">تأیید نمونه</div>
+      <div class="step-desc">ارسال پروف دیجیتال برای تأیید شما</div>
+    </div>
+    <div class="step-item reveal reveal-delay-3">
+      <div class="step-num light">۴</div>
+      <div class="step-name">تولید</div>
+      <div class="step-desc">چاپ با دستگاه‌های صنعتی مدرن</div>
+    </div>
+    <div class="step-item reveal reveal-delay-4">
+      <div class="step-num red">۵</div>
+      <div class="step-name">ارسال</div>
+      <div class="step-desc">تحویل سریع به درب منزل یا محل کار</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY US ══════════ -->
+<section class="why-scene" id="about">
+  <div class="why-grid">
+    <div class="why-text reveal">
+      <div class="section-label">چرا چاپ‌نت؟</div>
+      <h2 class="why-big-text">
+        مرکز <span>فرماندهی</span> چاپ و بسته‌بندی ایران
+      </h2>
+      <p class="why-body">
+        چاپ‌نت یک چاپخانه معمولی نیست. ما یک پلتفرم جامع هستیم که تمام نیازهای چاپ، بسته‌بندی و هویت بصری برند شما را در یک مرجع واحد پوشش می‌دهیم. از استارت‌آپ‌ها تا کارخانه‌های صادراتی.
+      </p>
+      <a href="tel:09037161259" class="btn-primary" style="display:inline-flex; font-size:14px; padding:12px 28px; border-radius:10px;">
+        📞 همین الان تماس بگیرید
+      </a>
+    </div>
+
+    <div class="why-features reveal reveal-delay-1">
+      <div class="feature-card">
+        <div class="feature-icon red">✅</div>
+        <div class="feature-title">کیفیت تضمینی</div>
+        <div class="feature-desc">چاپ با دستگاه‌های صنعتی مدرن و کنترل کیفیت دقیق</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon blue">🚀</div>
+        <div class="feature-title">تحویل سریع</div>
+        <div class="feature-desc">تولید اکسپرس با بهترین زمان تحویل در بازار</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon blue">💰</div>
+        <div class="feature-title">قیمت رقابتی</div>
+        <div class="feature-desc">بهترین قیمت با بالاترین کیفیت — بدون واسطه</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon red">🎨</div>
+        <div class="feature-title">طراحی حرفه‌ای</div>
+        <div class="feature-desc">تیم طراحی مجرب برای خلق هویت بصری قدرتمند</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon red">🗺️</div>
+        <div class="feature-title">سراسر ایران</div>
+        <div class="feature-desc">ارسال به تمام استان‌های کشور با پیک و پست</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon blue">🎯</div>
+        <div class="feature-title">راه‌حل سفارشی</div>
+        <div class="feature-desc">هر پروژه منحصربه‌فرد با راه‌حل اختصاصی</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DELIVERY ══════════ -->
+<section class="delivery-scene">
+  <div class="delivery-content reveal">
+    <p class="delivery-label">شبکه توزیع</p>
+    <h2 class="delivery-title">
+      ارسال سفارش به<br>
+      <span class="accent">سراسر ایران</span>
+    </h2>
+    <p class="delivery-desc">از هر نقطه کشور سفارش دهید — ما تحویل می‌دهیم.<br>تهران تا چابهار، تبریز تا بندرعباس.</p>
+
+    <!-- Simplified Iran Map -->
+    <div class="iran-map-container">
+      <svg class="iran-map-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simplified Iran outline -->
+        <path d="M 60 60 L 80 45 L 110 40 L 140 35 L 170 30 L 200 28 L 230 32 L 260 38 L 290 50 L 310 65 L 330 75 L 345 90 L 350 110 L 345 130 L 340 150 L 320 170 L 310 190 L 295 210 L 275 225 L 250 235 L 230 240 L 210 245 L 185 240 L 160 235 L 140 225 L 120 210 L 100 195 L 80 180 L 65 165 L 55 145 L 50 125 L 52 105 L 55 85 Z" />
+        <!-- Caspian Sea -->
+        <ellipse cx="230" cy="55" rx="35" ry="18" fill="rgba(4,47,123,0.15)" stroke="rgba(4,47,123,0.2)" stroke-width="0.5"/>
+        <!-- Persian Gulf -->
+        <path d="M 120 220 L 160 235 L 200 240 L 240 238 L 280 228 L 300 215" fill="none" stroke="rgba(4,47,123,0.2)" stroke-width="1"/>
+
+        <!-- City dots -->
+        <circle cx="195" cy="130" r="5" fill="#C90003" opacity="0.8"/><!-- Tehran -->
+        <circle cx="130" cy="100" r="3.5" fill="#C90003" opacity="0.7"/><!-- Tabriz -->
+        <circle cx="260" cy="145" r="3.5" fill="#C90003" opacity="0.7"/><!-- Isfahan -->
+        <circle cx="220" cy="185" r="3.5" fill="#C90003" opacity="0.7"/><!-- Shiraz -->
+        <circle cx="295" cy="165" r="3" fill="#C90003" opacity="0.6"/><!-- Kerman -->
+        <circle cx="280" cy="95" r="3" fill="#C90003" opacity="0.6"/><!-- Mashhad -->
+        <circle cx="90" cy="145" r="3" fill="#C90003" opacity="0.6"/><!-- Ahvaz -->
+        <circle cx="165" cy="195" r="3" fill="#C90003" opacity="0.6"/><!-- Bandarabbas -->
+
+        <!-- Connection lines -->
+        <line x1="195" y1="130" x2="130" y2="100" stroke="rgba(201,0,3,0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <line x1="195" y1="130" x2="260" y2="145" stroke="rgba(201,0,3,0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <line x1="195" y1="130" x2="220" y2="185" stroke="rgba(201,0,3,0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <line x1="195" y1="130" x2="280" y2="95" stroke="rgba(201,0,3,0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <line x1="195" y1="130" x2="90" y2="145" stroke="rgba(201,0,3,0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+      </svg>
+    </div>
+
+    <div class="provinces-counter">
+      <div class="prov-item">
+        <span class="prov-num">۳۱</span>
+        <span class="prov-label">استان</span>
+      </div>
+      <div class="prov-item">
+        <span class="prov-num">۷۲h</span>
+        <span class="prov-label">تحویل تهران</span>
+      </div>
+      <div class="prov-item">
+        <span class="prov-num">۵ روز</span>
+        <span class="prov-label">تحویل شهرستان</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ INDUSTRIES ══════════ -->
+<section class="industries-scene" id="industries">
+  <div class="scene-header reveal" style="text-align:center; max-width:600px; margin:0 auto 0;">
+    <div class="section-label" style="justify-content:center;">صنایع هدف</div>
+    <h2 class="scene-title">خدمات ما برای <span>هر صنعتی</span></h2>
+    <p class="scene-desc">چاپ‌نت تجربه تخصصی در خدمت‌رسانی به صنایع مختلف دارد</p>
+  </div>
+
+  <div class="industries-grid">
+    <div class="industry-card reveal">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#ff6b6b,#ee5a24);"></div>
+      <span class="industry-emoji">🍎</span>
+      <div class="industry-name">صنایع غذایی</div>
+      <div class="industry-desc">لیبل، بسته‌بندی و کارتن مواد غذایی</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-1">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#fd79a8,#e84393);"></div>
+      <span class="industry-emoji">💄</span>
+      <div class="industry-name">آرایشی و بهداشتی</div>
+      <div class="industry-desc">هاردباکس، لیبل و بسته‌بندی لاکچری</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-2">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#74b9ff,#0984e3);"></div>
+      <span class="industry-emoji">💊</span>
+      <div class="industry-name">پزشکی و دارو</div>
+      <div class="industry-desc">بسته‌بندی استاندارد دارویی و پزشکی</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-3">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#55efc4,#00b894);"></div>
+      <span class="industry-emoji">🌱</span>
+      <div class="industry-name">کشاورزی</div>
+      <div class="industry-desc">گونی، لیبل و بسته‌بندی محصولات زراعی</div>
+    </div>
+    <div class="industry-card reveal">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#ffeaa7,#fdcb6e);"></div>
+      <span class="industry-emoji">🏭</span>
+      <div class="industry-name">صنعتی</div>
+      <div class="industry-desc">کارتن، لیبل و بسته‌بندی صنعتی</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-1">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#a29bfe,#6c5ce7);"></div>
+      <span class="industry-emoji">🚀</span>
+      <div class="industry-name">استارت‌آپ</div>
+      <div class="industry-desc">پکیج کامل برندینگ و چاپ برای کسب‌وکارهای نوپا</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-2">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#81ecec,#00cec9);"></div>
+      <span class="industry-emoji">📤</span>
+      <div class="industry-name">صادرات</div>
+      <div class="industry-desc">بسته‌بندی با استانداردهای بین‌المللی</div>
+    </div>
+    <div class="industry-card reveal reveal-delay-3">
+      <div class="industry-bg" style="background:linear-gradient(135deg,#fab1a0,#e17055);"></div>
+      <span class="industry-emoji">🛒</span>
+      <div class="industry-name">خرده‌فروشی</div>
+      <div class="industry-desc">ساک، جعبه و مواد تبلیغاتی فروشگاهی</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="contact-scene" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <div class="section-label">تماس با ما</div>
+      <h2 class="contact-headline">
+        همین الان<br>
+        <span>سفارش</span> ثبت کنید
+      </h2>
+      <p class="contact-body">
+        تیم کارشناسان چاپ‌نت آماده مشاوره رایگان و دریافت سفارش شما هستند. از اولین تماس تا تحویل محصول، همراه شما هستیم.
+      </p>
+
+      <div class="contact-methods">
+        <a href="tel:09037161259" class="contact-method">
+          <div class="method-icon red">📞</div>
+          <div class="method-info">
+            <span class="method-label">تماس مستقیم</span>
+            <span class="method-value">09037161259</span>
+          </div>
+          <span class="method-arrow">←</span>
+        </a>
+        <a href="https://wa.me/989037161259" class="contact-method">
+          <div class="method-icon green">💬</div>
+          <div class="method-info">
+            <span class="method-label">واتساپ و پیام</span>
+            <span class="method-value">09037161259</span>
+          </div>
+          <span class="method-arrow">←</span>
+        </a>
+        <a href="https://chaapnet.ir" class="contact-method">
+          <div class="method-icon blue">🌐</div>
+          <div class="method-info">
+            <span class="method-label">وب‌سایت</span>
+            <span class="method-value">chaapnet.ir</span>
+          </div>
+          <span class="method-arrow">←</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form-card reveal reveal-delay-1">
+      <h3 class="form-title">فرم ثبت سفارش آنلاین</h3>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">نام و نام خانوادگی</label>
+          <input type="text" class="form-input" placeholder="نام شما">
+        </div>
+        <div class="form-field">
+          <label class="form-label">شماره موبایل</label>
+          <input type="tel" class="form-input" placeholder="09XX XXX XXXX" dir="ltr">
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">نام شرکت / برند</label>
+        <input type="text" class="form-input" placeholder="نام شرکت یا برند شما">
+      </div>
+      <div class="form-field">
+        <label class="form-label">نوع سفارش</label>
+        <select class="form-input form-select">
+          <option value="">انتخاب کنید...</option>
+          <option>کارت ویزیت</option>
+          <option>بسته‌بندی / هاردباکس</option>
+          <option>کاتالوگ / بروشور</option>
+          <option>لیبل و استیکر</option>
+          <option>ساک دستی</option>
+          <option>بنر و پرچم</option>
+          <option>هدایای تبلیغاتی</option>
+          <option>سایر</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">توضیحات</label>
+        <textarea class="form-input" placeholder="جزئیات سفارش، تیراژ، مشخصات و..."></textarea>
+      </div>
+      <a href="tel:09037161259" class="btn-submit" style="display:block; text-align:center; text-decoration:none; color:white;">
+        📞 ثبت سفارش و تماس با کارشناس
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">چ</div>
+        <span class="footer-logo-text">چاپ<span>‌نت</span></span>
+      </div>
+      <p class="footer-tagline">
+        مرجع چاپ ایران<br>
+        از ایده تا چاپ، از چاپ تا ماندگاری برند<br><br>
+        <a href="tel:09037161259" class="footer-phone">۰۹۰۳۷۱۶۱۲۵۹</a>
+      </p>
+    </div>
+
+    <div>
+      <p class="footer-col-title">محصولات</p>
+      <ul class="footer-links">
+        <li><a href="tel:09037161259">کارت ویزیت</a></li>
+        <li><a href="tel:09037161259">کاتالوگ و بروشور</a></li>
+        <li><a href="tel:09037161259">لیبل و استیکر</a></li>
+        <li><a href="tel:09037161259">هاردباکس</a></li>
+        <li><a href="tel:09037161259">ساک دستی</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-col-title">خدمات</p>
+      <ul class="footer-links">
+        <li><a href="tel:09037161259">طراحی گرافیک</a></li>
+        <li><a href="tel:09037161259">چاپ دیجیتال</a></li>
+        <li><a href="tel:09037161259">چاپ افست</a></li>
+        <li><a href="tel:09037161259">صحافی</a></li>
+        <li><a href="tel:09037161259">ارسال سراسری</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-col-title">تماس</p>
+      <ul class="footer-links">
+        <li><a href="tel:09037161259">۰۹۰۳۷۱۶۱۲۵۹</a></li>
+        <li><a href="https://chaapnet.ir">chaapnet.ir</a></li>
+        <li><a href="tel:09037161259">مشاوره رایگان</a></li>
+        <li><a href="tel:09037161259">ثبت سفارش آنلاین</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© ۱۴۰۴ چاپ‌نت | مرجع چاپ ایران — تمامی حقوق محفوظ است</span>
+    <span>ساخته شده با ❤️ برای برندهای ایرانی</span>
+  </div>
+</footer>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script>
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ── REVEAL ON SCROLL ── */
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => revealObs.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.round(eased * target);
+    // Convert to Persian numerals
+    el.textContent = value.toLocaleString('fa-IR');
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+/* ── HERO CANVAS — 3D PRINTING MACHINE ── */
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  const parent = canvas.parentElement;
+  canvas.width = parent.clientWidth;
+  canvas.height = parent.clientHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let animFrame = 0;
+let particles = [];
+const MAX_PARTICLES = 60;
+
+// Initialize particles
+for (let i = 0; i < MAX_PARTICLES; i++) {
+  particles.push({
+    x: Math.random() * 800,
+    y: Math.random() * 400,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: -Math.random() * 0.8 - 0.2,
+    life: Math.random(),
+    size: Math.random() * 3 + 1,
+    color: Math.random() > 0.5 ? '#C90003' : '#042F7B',
+    alpha: Math.random() * 0.6 + 0.2
+  });
+}
+
+function drawMachine(ctx, w, h, t) {
+  // Background gradient
+  const bg = ctx.createLinearGradient(0, 0, w, h);
+  bg.addColorStop(0, '#F0F4FF');
+  bg.addColorStop(1, '#FFF5F5');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, w, h);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(4,47,123,0.05)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < w; x += 40) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+  }
+  for (let y = 0; y < h; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+  }
+
+  const cx = w * 0.5;
+  const cy = h * 0.5;
+  const scale = Math.min(w, h) / 400;
+
+  // ── PRINTING MACHINE BODY ──
+  const machW = 280 * scale;
+  const machH = 160 * scale;
+  const machX = cx - machW / 2;
+  const machY = cy - machH / 2 - 10 * scale;
+
+  // Machine shadow
+  ctx.shadowColor = 'rgba(4,47,123,0.15)';
+  ctx.shadowBlur = 40 * scale;
+  ctx.shadowOffsetY = 10 * scale;
+
+  // Machine body
+  const bodyGrad = ctx.createLinearGradient(machX, machY, machX, machY + machH);
+  bodyGrad.addColorStop(0, '#1a2744');
+  bodyGrad.addColorStop(0.5, '#0d1b3a');
+  bodyGrad.addColorStop(1, '#050d1f');
+  ctx.fillStyle = bodyGrad;
+  roundRect(ctx, machX, machY, machW, machH, 16 * scale);
+  ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+
+  // Machine top highlight
+  const topGrad = ctx.createLinearGradient(machX, machY, machX, machY + 30 * scale);
+  topGrad.addColorStop(0, 'rgba(255,255,255,0.12)');
+  topGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = topGrad;
+  roundRect(ctx, machX, machY, machW, 40 * scale, [16*scale, 16*scale, 0, 0]);
+  ctx.fill();
+
+  // Red accent stripe
+  ctx.fillStyle = '#C90003';
+  ctx.fillRect(machX + 16 * scale, machY + 40 * scale, machW - 32 * scale, 3 * scale);
+
+  // Paper slot
+  const slotW = 180 * scale;
+  const slotH = 12 * scale;
+  const slotX = cx - slotW / 2;
+  const slotY = cy - slotH / 2 + 5 * scale;
+  ctx.fillStyle = '#000';
+  roundRect(ctx, slotX, slotY, slotW, slotH, 4 * scale);
+  ctx.fill();
+
+  // Paper emerging from slot (animated)
+  const paperProgress = (Math.sin(t * 0.02) * 0.5 + 0.5);
+  const paperLen = 80 * scale * paperProgress;
+  if (paperLen > 0) {
+    // Paper shadow
+    ctx.shadowColor = 'rgba(0,0,0,0.2)';
+    ctx.shadowBlur = 8 * scale;
+    ctx.shadowOffsetX = 4 * scale;
+
+    const paperGrad = ctx.createLinearGradient(slotX, slotY + slotH, slotX, slotY + slotH + paperLen);
+    paperGrad.addColorStop(0, '#f0f0f0');
+    paperGrad.addColorStop(1, '#ffffff');
+    ctx.fillStyle = paperGrad;
+    ctx.fillRect(slotX + 8 * scale, slotY + slotH, slotW - 16 * scale, paperLen);
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+
+    // Print lines on paper
+    if (paperLen > 20 * scale) {
+      ctx.strokeStyle = 'rgba(4,47,123,0.3)';
+      ctx.lineWidth = 1.5;
+      for (let i = 1; i <= 3; i++) {
+        const lineY = slotY + slotH + (paperLen * i / 4);
+        if (lineY < slotY + slotH + paperLen - 4 * scale) {
+          ctx.beginPath();
+          ctx.moveTo(slotX + 20 * scale, lineY);
+          ctx.lineTo(slotX + slotW - 20 * scale, lineY);
+          ctx.stroke();
+        }
+      }
+      // Red accent line on paper
+      ctx.strokeStyle = 'rgba(201,0,3,0.4)';
+      ctx.lineWidth = 2;
+      const accentY = slotY + slotH + 10 * scale;
+      if (accentY < slotY + slotH + paperLen - 4 * scale) {
+        ctx.beginPath();
+        ctx.moveTo(slotX + 20 * scale, accentY);
+        ctx.lineTo(slotX + 60 * scale, accentY);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // LED indicators
+  const leds = [
+    { x: -100, y: -50, color: '#00ff88', blink: Math.sin(t * 0.1) > 0 },
+    { x: -80, y: -50, color: '#C90003', blink: Math.sin(t * 0.07 + 1) > 0 },
+    { x: -60, y: -50, color: '#ffaa00', blink: Math.sin(t * 0.05 + 2) > 0 },
+    { x: -40, y: -50, color: '#042F7B', blink: true },
+  ];
+  leds.forEach(led => {
+    const lx = cx + led.x * scale;
+    const ly = cy + led.y * scale;
+    ctx.beginPath();
+    ctx.arc(lx, ly, 4 * scale, 0, Math.PI * 2);
+    ctx.fillStyle = led.blink ? led.color : `${led.color}44`;
+    ctx.fill();
+    if (led.blink) {
+      ctx.beginPath();
+      ctx.arc(lx, ly, 8 * scale, 0, Math.PI * 2);
+      ctx.fillStyle = `${led.color}22`;
+      ctx.fill();
+    }
+  });
+
+  // Control panel
+  const panelW = 80 * scale;
+  const panelH = 50 * scale;
+  const panelX = cx + 60 * scale;
+  const panelY = cy - 60 * scale;
+  const panelGrad = ctx.createLinearGradient(panelX, panelY, panelX, panelY + panelH);
+  panelGrad.addColorStop(0, '#1e2d52');
+  panelGrad.addColorStop(1, '#0a1a35');
+  ctx.fillStyle = panelGrad;
+  roundRect(ctx, panelX, panelY, panelW, panelH, 6 * scale);
+  ctx.fill();
+
+  // Panel knob
+  ctx.beginPath();
+  ctx.arc(panelX + panelW / 2, panelY + panelH / 2, 12 * scale, 0, Math.PI * 2);
+  ctx.fillStyle = '#2a3d6a';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(panelX + panelW / 2, panelY + panelH / 2, 8 * scale, 0, Math.PI * 2);
+  const knobGrad = ctx.createRadialGradient(
+    panelX + panelW / 2 - 2, panelY + panelH / 2 - 2, 0,
+    panelX + panelW / 2, panelY + panelH / 2, 8 * scale
+  );
+  knobGrad.addColorStop(0, '#C90003');
+  knobGrad.addColorStop(1, '#7a0002');
+  ctx.fillStyle = knobGrad;
+  ctx.fill();
+
+  // Ink rollers
+  for (let i = 0; i < 3; i++) {
+    const rx = machX + 30 * scale + i * 60 * scale;
+    const ry = machY + machH * 0.3;
+    const rh = machH * 0.2;
+    // Roller body
+    const rGrad = ctx.createLinearGradient(rx, ry, rx + 40 * scale, ry);
+    rGrad.addColorStop(0, '#1a1a2e');
+    rGrad.addColorStop(0.5, '#2d2d4a');
+    rGrad.addColorStop(1, '#1a1a2e');
+    ctx.fillStyle = rGrad;
+    roundRect(ctx, rx, ry, 40 * scale, rh, 4 * scale);
+    ctx.fill();
+    // Roller shine
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    roundRect(ctx, rx + 4 * scale, ry + 2 * scale, 32 * scale, rh * 0.35, 3 * scale);
+    ctx.fill();
+    // Roller spin marks
+    const angle = t * 0.05 * (i % 2 === 0 ? 1 : -1);
+    const rcx = rx + 20 * scale;
+    const rcy = ry + rh / 2;
+    ctx.save();
+    ctx.translate(rcx, rcy);
+    ctx.rotate(angle);
+    ctx.strokeStyle = 'rgba(201,0,3,0.4)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, -rh * 0.4);
+    ctx.lineTo(0, rh * 0.4);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Particles (ink spray)
+  particles.forEach((p, i) => {
+    ctx.beginPath();
+    ctx.arc(
+      machX + p.x * machW / 800,
+      slotY + p.y * 0.1 - p.life * 40 * scale,
+      p.size * scale,
+      0, Math.PI * 2
+    );
+    ctx.fillStyle = p.color + Math.floor(p.alpha * 255).toString(16).padStart(2,'0');
+    ctx.fill();
+    p.life += 0.005;
+    p.y -= 0.3;
+    if (p.life > 1 || p.y < 0) {
+      p.life = 0;
+      p.x = Math.random() * 200 + 300;
+      p.y = 100 + Math.random() * 20;
+    }
+  });
+
+  // Floating text label
+  ctx.font = `${Math.floor(11 * scale)}px Vazirmatn, sans-serif`;
+  ctx.fillStyle = 'rgba(201,0,3,0.7)';
+  ctx.textAlign = 'center';
+  ctx.direction = 'rtl';
+  const textY = machY - 18 * scale;
+  const pulse = 0.85 + Math.sin(t * 0.05) * 0.15;
+  ctx.globalAlpha = pulse;
+  ctx.fillText('● در حال تولید', cx, textY);
+  ctx.globalAlpha = 1;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  if (typeof r === 'number') r = [r, r, r, r];
+  ctx.beginPath();
+  ctx.moveTo(x + r[0], y);
+  ctx.lineTo(x + w - r[1], y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r[1]);
+  ctx.lineTo(x + w, y + h - r[2]);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r[2], y + h);
+  ctx.lineTo(x + r[3], y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r[3]);
+  ctx.lineTo(x, y + r[0]);
+  ctx.quadraticCurveTo(x, y, x + r[0], y);
+  ctx.closePath();
+}
+
+function animateCanvas() {
+  animFrame++;
+  drawMachine(ctx, canvas.width, canvas.height, animFrame);
+  requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
+
+/* ── MARQUEE DUPLICATE ── */
+// Already duplicated in HTML
+
+/* ── PRODUCT CARD INTERACTION ── */
+document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.querySelector('.product-cta') && (card.querySelector('.product-cta').style.opacity = '1');
+  });
+});
+
+/* ── SMOOTH ANCHOR SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── PARALLAX MESHES ── */
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const m1 = document.querySelector('.mesh-1');
+  const m2 = document.querySelector('.mesh-2');
+  if (m1) m1.style.transform = `translateY(${scrollY * 0.15}px)`;
+  if (m2) m2.style.transform = `translateY(${-scrollY * 0.1}px)`;
+});
+</script>
+</body>
+</html>
